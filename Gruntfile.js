@@ -17,6 +17,9 @@ module.exports = function (grunt){
         uglify: {
             build: {
                 src: ['scripts/bower_components/angular/angular.min.js',
+                      'scripts/bower_components/angular-ui-router/release/angular-ui-router.min.js',
+                      'scripts/bower_components/angular-youtube-api-factory/dist/angular-youtube-api-factory.min.js',
+                      'scripts/bower_components/lodash/dist/lodash.min.js',
                       'scripts/*.js'
                      ],
                 dest: 'build/app.min.js'

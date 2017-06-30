@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <form>
+                <input class="form-control" type="text" ng-model="searchText">
+            </form>
+        </div>
+    </div>
+    <div class="loading text-center" ng-show="loading">
+        Loading ....
+    </div>
+    <div class="row" ng-show="!loading">
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+            <div class="video-tiles" ng-click="showVideo(videoData)" ng-repeat="videoData in videos track by $index">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img ng-src="{{videoData.snippet.thumbnails.default.url}}">
+                    </div>
+                    <div class="col-md-7">
+                        {{videoData.snippet.title}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
