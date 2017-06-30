@@ -11,7 +11,7 @@
     </div>
     <div class="row" ng-show="!loading">
         <div class="col-md-8">
-
+            <iframe ng-src="{{bigVideoSrc}}"></iframe>
         </div>
         <div class="col-md-4">
             <div class="video-tiles" ng-click="showVideo(videoData)" ng-repeat="videoData in videos track by $index">
