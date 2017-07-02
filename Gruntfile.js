@@ -34,6 +34,18 @@ module.exports = function (grunt){
                 src: ["stylesheet/*.min.css", 'scripts/bower_components/bootstrap/dist/css/bootstrap.min.css'],
                 dest: "build/styles.min.css"
             }
+        },
+        'http-server': {
+            'dev': {
+                root: './',
+                port: 8000,
+                host: "0.0.0.0",
+                showDir : true,
+                autoIndex: true,
+                ext: "html",
+                runInBackground: false,
+            }
+
         }
     });
 
@@ -41,7 +53,9 @@ module.exports = function (grunt){
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-concat-css');
+    grunt.loadNpmTasks('grunt-http-server');
 
     grunt.registerTask('default', ['uglify', 'cssmin', 'concat_css']);
+    grunt.registerTask('server', ['http-server:dev']);
 };
 

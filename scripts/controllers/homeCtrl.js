@@ -1,7 +1,7 @@
 var app = angular.module('youtube');
 
-app.controller("HomeCtrl", ["$scope", "$http", "_", "$sce", function($scope, $http, _, $sce){
-    var API_KEY = 'AIzaSyAuQCVeNfKhtRk9KlChQPT1nO27DPO_5Ss';
+app.controller("HomeCtrl", ["$scope", "$http", "_", "$sce", 'API_KEY', 'YoutubeService',
+                    function($scope, $http, _, $sce, API_KEY, YoutubeService){
     $scope.loading = true;
     $scope.videos = null;
     $scope.searchText = "Tu Thodi Der";
@@ -10,8 +10,7 @@ app.controller("HomeCtrl", ["$scope", "$http", "_", "$sce", function($scope, $ht
 
     $scope.searchVideos = function () {
         $scope.loading = true;
-        $http.get("https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&maxResults=5&q=" + $scope.searchText
-          + "&type=video&key="+API_KEY, { cache: true })
+        YoutubeService.getbyQuery($scope.searchText)
           .then(function(response){
               $scope.videos = response.data.items;
               $scope.loading = false;
